@@ -18,9 +18,9 @@ security = HTTPBearer()
 
 
 
-@server.on_event("startup")
-def create_postgres_orm():
-    create_db()
+# @server.on_event("startup")
+# def create_postgres_orm():
+#     create_db()
 
 
 # Dependency

@@ -16,6 +16,7 @@ spec:
         - name: postgres-storage
           persistentVolumeClaim:
             claimName: postgres-pvc
+            
       containers:
         - name: postgres-container
           image: postgres:13
@@ -25,17 +26,13 @@ spec:
               cpu: "500m"
           ports:
             - containerPort: 5432
+          envFrom:
+            - configMapRef:
+                name: postgres-configmap
 
           volumeMounts:
             - name: postgres-storage
               mountPath: /var/lib/postgresql/data
               subPath: postgres
 
-          env:
-            - name: POSTGRES_USER
-              value: root
-            - name: POSTGRES_DB
-              value: auth
-            - name: POSTGRES_PASSWORD
-              value: root
-              
+          

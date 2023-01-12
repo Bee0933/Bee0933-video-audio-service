@@ -22,10 +22,12 @@ create_postgres:
 create_user:
 	# create user tables from ORM local test
 	python3 db_cli.py create
+	# python3 manifests/postgres/makedb.py
 
 populate_user_db:
 	# create dummy data for user db
 	python3 db_cli.py populate 'best@mail.com' 'pass'
+	
 
 
 all: install format lint 

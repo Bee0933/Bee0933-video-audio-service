@@ -7,11 +7,11 @@ import os
 DB_USR = os.environ.get("DB_USR")
 DB_PASSWORD = os.environ.get("DB_PASSWORD")
 DB_HOST = os.environ.get("DB_HOST")
-DB_PORT = os.environ.get("DB_PORT")
+# DB_PORT = os.environ.get("DB_PORT")
 DB_NAME = os.environ.get("DB_NAME")
 
 # connection_string = os.environ.get("DB_URL")
-connection_string = f"postgresql+psycopg2://{DB_USR}:{DB_PASSWORD}@{DB_HOST}:{DB_PORT}/{DB_NAME}"
+connection_string = f"postgresql+psycopg2://{DB_USR}:{DB_PASSWORD}@{DB_HOST}:5432/{DB_NAME}"
 
 Base = declarative_base()
 
@@ -31,8 +31,8 @@ def create_db():
     Base.metadata.create_all(bind=engine)
 
 
-# def populate_db(usr_email: str, usr_password: str):
-#     new_user = user(email=usr_email, password=usr_password)
-#     with Sessionlocal() as db:
-#         db.add(new_user)
-#         db.commit()
+def populate_db(usr_email: str, usr_password: str):
+    new_user = user(email=usr_email, password=usr_password)
+    with Sessionlocal() as db:
+        db.add(new_user)
+        db.commit()

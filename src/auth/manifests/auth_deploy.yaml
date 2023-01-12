@@ -18,7 +18,7 @@ spec:
     spec:
       containers:
         - name: auth-container
-          image: bestnyah/auth-service
+          image: bestnyah/auth-service:latest 
           resources:
             limits:
               memory: "128Mi"

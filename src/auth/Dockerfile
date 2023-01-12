@@ -12,4 +12,4 @@ COPY . /app
 
 EXPOSE 8001
 
-CMD ["python3", "server.py"]
+CMD ["sh","-c","make create_user && python3 server.py"]
