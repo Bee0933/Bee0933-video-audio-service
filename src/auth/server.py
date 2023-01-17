@@ -41,7 +41,7 @@ async def login(db: Session = Depends(get_db)):
     return 'populate test user'
 
 
-@server.post("/login", status_code=status.HTTP_201_CREATED)
+@server.post("/login", status_code=status.HTTP_200_OK)
 async def login(
     credentials: HTTPBasicCredentials = Depends(basic_auth),
     db: Session = Depends(get_db),
